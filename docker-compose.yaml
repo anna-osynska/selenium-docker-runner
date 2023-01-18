@@ -2,8 +2,6 @@ version: "3"
 services:
   hub:
     image: selenium/hub
-    ports:
-      - "4444:4444"
   chrome:
     image: selenium/node-chrome
     shm_size: '2g'
@@ -33,7 +31,7 @@ services:
       - MODULE=search-module.xml
       - BROWSER=firefox
     volumes:
-      - ./test-output:/usr/share/test-output
+      - ./test-output/search:/usr/share/test-output
   flight-module:
     image: annasilch/docker3
     shm_size: '1g'
@@ -45,4 +43,4 @@ services:
       - MODULE=testng.xml
       - BROWSER=firefox
     volumes:
-      - ./test-output2:/usr/share/test-output
+      - ./test-output/flight:/usr/share/test-output

@@ -11,10 +11,11 @@ pipeline {
              bat "docker-compose up search-module flight-module"
          }
       }
-      stage('Grid down') {
-         steps {
-             bat "docker-compose down"
-         }
+   }
+   post {
+      always {
+        archiveArtifacts artifacts: 'output/**'
+        bat "docker-compose down"
       }
    }
 }

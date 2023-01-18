@@ -31,7 +31,7 @@ services:
       - MODULE=search-module.xml
       - BROWSER=firefox
     volumes:
-      - ./test-output/search:/usr/share/test-output
+      - ./output/search:/usr/share/test-output
   flight-module:
     image: annasilch/docker3
     shm_size: '1g'
@@ -43,4 +43,4 @@ services:
       - MODULE=testng.xml
       - BROWSER=firefox
     volumes:
-      - ./test-output/flight:/usr/share/test-output
+      - ./output/flight:/usr/share/test-output

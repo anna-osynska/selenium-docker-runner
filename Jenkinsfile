@@ -6,7 +6,7 @@ pipeline{
              sh "docker-compose up -d hub chrome firefox"
          }
       }
-      stage("Start grid"){
+      stage("Start test"){
          steps{
              sh "docker-compose up search-module flight-module"
          }

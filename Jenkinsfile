@@ -1,19 +1,19 @@
-pipeline{
+pipeline {
    agent any
-   stages{
-      stage("Start grid"){
-         steps{
-             sh "docker-compose up -d hub chrome firefox"
+   stages {
+      stage('Start grid') {
+         steps {
+             bat "docker-compose up -d hub chrome firefox"
          }
       }
-      stage("Start test"){
-         steps{
-             sh "docker-compose up search-module flight-module"
+      stage('Start test') {
+         steps {
+             bat "docker-compose up search-module flight-module"
          }
       }
-      stage("Grid down"){
-         steps{
-             sh "docker-compose down"
+      stage('Grid down') {
+         steps {
+             bat "docker-compose down"
          }
       }
    }

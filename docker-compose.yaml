@@ -6,7 +6,7 @@ services:
       - "4444:4444"
   chrome:
     image: selenium/node-chrome
-    shm_size: '2g' 
+    shm_size: '2g'
     depends_on:
       - hub
     environment:
@@ -15,7 +15,7 @@ services:
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
   firefox:
     image: selenium/node-firefox
-    shm_size: '2g' 
+    shm_size: '2g'
     depends_on:
       - hub
     environment:
@@ -23,7 +23,8 @@ services:
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
   search-module:
-    image: anna/docker3
+    image: annasilch/docker3
+    shm_size: '1g'
     depends_on:
       - firefox
       - chrome
@@ -34,7 +35,8 @@ services:
     volumes:
       - ./test-output:/usr/share/test-output
   flight-module:
-    image: anna/docker3
+    image: annasilch/docker3
+    shm_size: '1g'
     depends_on:
       - firefox
       - chrome

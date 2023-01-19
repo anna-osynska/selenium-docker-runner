@@ -1,6 +1,11 @@
 pipeline {
    agent any
    stages {
+      stage('Pull image') {
+            steps {
+                bat "docker pull annasilch/docker3"
+            }
+      }
       stage('Start grid') {
          steps {
              bat "docker-compose up -d hub chrome firefox"
